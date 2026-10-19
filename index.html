@@ -75,7 +75,7 @@ function render(){
  if(view=='admin')return admin();
  if(view=='home'){
   var h=head('')+'<p class="intro">'+esc(L.zh.note)+'<br>'+esc(L.en.note)+'</p><p class="mu" style="text-align:center;margin:14px 0 0">請選擇語言 · Select Language · 言語を選択 · 언어 선택 · Pilih Bahasa · Chọn ngôn ngữ</p><div class="langs">'+LG.map(function(k){return '<button class="lb" data-a="go" data-v="'+k+'">'+L[k].n+'</button>'}).join('')+'</div>';
-  if(canEdit)h+='<div style="text-align:center"><button class="btn" data-a="go" data-v="admin">⚙ 管理員後台</button></div>';
+  h+=canEdit?'<div style="text-align:center"><button class="btn" data-a="go" data-v="admin">⚙ 管理員後台</button></div>':'<div style="text-align:center;margin:28px 0 16px"><button data-a="go" data-v="admin" style="background:none;border:0;padding:8px;font-size:12px;color:#9a9a9a;cursor:pointer;text-decoration:underline">管理員登入</button></div>';
   A.innerHTML=h;return}
  var k=LG.indexOf(view),T=L[view];document.documentElement.lang=view=='zh'?'zh-Hant':view;
  var h='<div class="bar"><button class="btn" data-a="go" data-v="home">'+T.back+'</button>'+(D.logo?'<img class="logo s" alt="奶茶站" src="'+D.logo+'">':'<b style="color:var(--ac)">🧋 奶茶站</b>')+'</div>'+(NT[view]?'<div class="ntc"><div>'+esc(NT[view])+'</div><small>給店員：客人會指著中文品名點餐，謝謝！</small></div>':'');
